@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <title>advertisement</title>
+        <script text="JavaScript">
+            function advertisement(){ //display the favourite list item. Display random item if no favoiurite item is found
+                if(localStorage.getItem("favouriteItem") == null){
+                    document.getElementById("headerContent").innerHTML = "Your favourite item list is empty ! The following picture is we guess you may like it, you can click the picture to the item page";
+                    ramNumb = Math.floor(Math.random() * 15) + 1;
+                    display(ramNumb);
+                }else{
+                    document.getElementById("headerContent").innerHTML = "Welcome! The following picture is your favourite item, you can click the picture to the item page";
+                    FavProductNum = localStorage.getItem("favouriteItem");
+                    display(FavProductNum);
+                }
+            }
+
+            function display(productNumb){ //display image according to the product number
+                productNumb = parseInt(productNumb);
+                switch(productNumb){
+                    case 1:
+                        document.getElementById('picture').src='images/KAWAI.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', 'babyFood/KAWAI_Kanyu_Drop_S.html');
+                        document.getElementById('link').src='';
+                        break;
+                    case 2:
+                        document.getElementById('picture').src='images/Happy_Tot_Organics_Super_Foods_Stage_4-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', 'babyFood/Happy Tot Organics Super Foods Stage 4.html');
+                        document.getElementById('link').src='';
+                        break;
+                    case 3:
+                        document.getElementById('picture').src='images/Gerber2ndFoods-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', 'babyFood/Chicken and Gravy.html');
+                        document.getElementById('link').src='';
+                        break;
+                    case 4:
+                        document.getElementById('picture').src='images/81-5p7ojYKL._SL1500_-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', 'babyFood/Happy Baby Organics Clearly Cartted Stage 1.html');
+                        document.getElementById('link').src='';
+                        break;
+                    case 5:
+                        document.getElementById('picture').src='images/513owTM51KL-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', 'babyFood/Oatmeal Barley Apple Cinnamon.html');
+                        document.getElementById('link').src='';
+                        break;
+                    case 6:
+                        document.getElementById('picture').src='images/61OatsP9i5L._SL1000_-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', 'babyCare/Evenflo Pivot Modular Travel System.html');
+                        document.getElementById('link').src='';
+                        break;
+                    case 7:
+                        document.getElementById('picture').src='images/81Ea7u97ywL._SL1500_-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', "babyCare/Dr. Brown's Infant-to-Toddler Toothbrush.html");
+                        document.getElementById('link').src='';
+                        break;
+                    case 8:
+                        document.getElementById('picture').src='images/71QLU+6qrVL._SL1500_-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', "babyCare/BabyBumDuke’sRadBathSet.html");
+                        document.getElementById('link').src='';
+                        break;
+                    case 9:
+                        document.getElementById('picture').src='images/71gAiqAG3EL._SL1500_-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', "babyCare/Aquaphor Baby Skin Care Set.html");
+                        document.getElementById('link').src='';
+                        break;
+                    case 10:
+                        document.getElementById('picture').src='images/71Chx8FDPXL._SL1500_-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', "babyCare/BabyDoveSensitiveSkinCareBabyWash.html");
+                        document.getElementById('link').src='';
+                        break;
+                    case 11:
+                        document.getElementById('picture').src='images/71ZzKSXSrJL._AC_SL1500_-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', "toys/VTech Baby Lil' Critters Moosical Beads Amazon Exclusive.html");
+                        document.getElementById('link').src='';
+                        break;
+                    case 12:
+                        document.getElementById('picture').src='images/81s+p-98uyL._SL1500_-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', "toys/Baby Einstein Take Along Tunes Musical Toy.html");
+                        document.getElementById('link').src='';
+                        break;
+                    case 13:
+                        document.getElementById('picture').src='images/7108HSmwBeL._AC_SL1500_-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', "toys/VTech Pull and Sing Puppy.html");
+                        document.getElementById('link').src='';
+                        break;
+                    case 14:
+                        document.getElementById('picture').src='images/71wQb2LWUkL._AC_SL1500_-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', "toys/LeapFrog Learning Friends 100 Words Book.html");
+                        document.getElementById('link').src='';
+                        break;
+                    case 15:
+                        document.getElementById('picture').src='images/71jwx0Q31AL._AC_SL1500_-removebg-preview.png';
+                        var img = document.getElementById('link');
+                        img.setAttribute('href', "toys/VTech Turn and Learn Driver.html");
+                        document.getElementById('link').src='';
+                        break;
+                }
+            }
+        </script>
+        <style>
+            div#header{
+                width: 100%;
+                height: 10%;
+                font-size: 1.2em;
+                text-align: center;
+            }
+            div#header p{
+                color: black;
+                height: 5%;
+                position: absolute;
+                text-align: center;
+            }
+            img{
+                margin-top: 30px;
+                height: 80%;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body onload="advertisement()">
+        <div id="header">
+            <p id="headerContent"></p>
+            </div>
+            <a id="link" href="index.html"><img id="picture" src="images/logo.jpg"></a>
+    </body>
+</html>

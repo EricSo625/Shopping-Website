@@ -1,0 +1,327 @@
+<html>
+    <head>
+        <title>Chicken and Gravy</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Open+Sans&display=swap" rel="stylesheet">
+        <script text="javascript">
+            function verification(){
+                password = window.prompt("Enter a password");
+                if (password == "JavaScript"){
+                    alert("Correct! Please allow allow popups to open a new tab")
+                    var tab = window.open('../Resume/index.html', '_blank');
+                    if (tab) {
+                        tab.focus();
+                    } else {
+                        alert('need allow popups to open a new tab');
+                    }
+                }else{
+                    alert("Password Not Correct!");
+                }
+            }
+            function startTime() {
+                const today = new Date();
+                let hour = today.getHours();
+                let minute = today.getMinutes();
+                let second = today.getSeconds();
+                n =  new Date();
+                year = n.getFullYear();
+                month = n.getMonth() + 1;
+                day = n.getDate();
+                document.getElementById("date").innerHTML = day + "/" + month + "/" + year;
+                document.getElementById('txt').innerHTML =  hour + ":" + minute + ":" + second;
+                setTimeout(startTime, 1000);
+            }
+            function checkTime(i) {
+                if (i < 10) {i = "0" + i}; 
+                return i;
+                }
+            function addItem(){
+                document.getElementById("number").value = parseInt(document.getElementById("number").value) + 1;
+            }
+            function subItem(){
+                if(parseInt(document.getElementById("number").value) == 0){
+                    alert("item can not less than zero!");
+                    return;
+                }
+                document.getElementById("number").value = parseInt(document.getElementById("number").value) - 1;
+            }
+            function calculate(){
+                
+                var total = parseFloat(document.getElementById("number").value).toFixed(2) * 162.11;
+                document.getElementById("price").innerHTML = "Total Price : " + total + " HKD";
+            }
+            $(function () {
+                $('#images').hover(function(){
+                    $("#images").attr('src','../images/81kemDU7kJL._SL1500_-removebg-preview (1).png');
+                },function(){
+                    $("#images").attr('src','../images/Gerber2ndFoods-removebg-preview.png');
+                })
+            });
+            function addFavourite(){
+                if (localStorage.getItem("favouriteItem") == null){
+                    alert("add to favourite list successfully");
+                    localStorage.setItem("favouriteItem","3");
+                }else{
+                    var choice = confirm("You already store a favourite item, do you want to replace it?");
+                    if (choice == true){
+                        alert("add to favourite list successfully")
+                        localStorage.setItem("favouriteItem","3");
+                    }else{
+                        alert("OK! will not replace it")
+                    }
+                }
+            }
+        </script>
+        <style>
+            body{
+                background-image: url("../images/background_image.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .navbar {
+                background:transparent;
+            }
+
+            .nav-link,.navbar-brand {
+                color: transparent;
+                cursor: pointer;
+            }
+            .nav-link {
+                margin-right: 1em;
+            }
+            .nav-link:hover {
+                color: #000;
+            }
+            .navbar-collapse {
+                justify-content: flex-end;
+            }
+            #comp-logo {
+                border-radius: 50%;
+                width: 75px;
+                margin-right: 35px;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Noto Sans TC', sans-serif;
+            }
+            p, a, span, li label {
+                font-family: 'Noto Sans TC', sans-serif;
+                font-family: 'Open Sans', sans-serif;
+            }
+            .dropdown-menu { 
+                box-shadow: 0 0 5px 0;
+                background: inherit;
+                backdrop-filter: blur(10px);
+                text-align: center;
+                border-radius: 0 0 15px 15px;
+            }
+            .dropdown-item{
+                color: white;
+            }
+            .page-footer {
+                margin-top: 100px;
+                width: 100%;
+                background-color: black;
+                color: #ccc;
+                padding: 15px;
+            }
+            .page-footer img{
+                border-radius: 50%;
+                width: 200px;
+            }
+            @media (min-width: 768px) {
+                .animate {
+                    animation-duration: 0.3s;
+                    -webkit-animation-duration: 0.3s;
+                    animation-fill-mode: both;
+                    -webkit-animation-fill-mode: both;
+                }
+            }
+
+            @keyframes slideIn {
+                0% {
+                    transform: translateY(0rem);
+                }
+
+                100% {
+                    transform: translateY(1rem);
+                    
+                }
+            }
+
+            .slideIn {
+                animation-name: slideIn;
+            }
+            .right{
+                float: right;
+            }
+            .center{
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            div#header{
+                text-align: center;
+                color: white;
+                margin-bottom: 50px;
+            }
+            .product{
+                width: 200px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                display: block;
+                margin-top: 10%;
+            }
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            a:hover{
+                color: #000;
+            }
+            .productTitle{
+                margin-top: 90px;
+                color: white;
+            }
+            .description{
+                margin-top: 5%;
+                color:white;
+                font-size: 1.3em;
+
+            }
+            input{
+                width: 50px;
+                height: 40px;
+                border-radius: 5px;
+                background-color: lightblue;
+                margin-left: 20px;
+                margin-right: 20px;
+                text-align: center;
+            }
+            hr{
+                border: dashed cyan 1px;
+                width: 100%;
+            }
+            div#control ul {
+                list-style-type: none;
+                padding: 0;
+                display: table;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 10px;
+                }
+                
+            div#control li {
+                float: left;
+                font-family: "Trebuchet MS", Helvetica, sans-serif;
+                font-size: 1.3em;
+                background-color: black;
+                color: white;
+                text-decoration: none;        
+                margin:10px;
+                border-radius: 4px;            
+            }
+            div#content li{
+                color: white;
+                margin: 30px 5px;
+            }
+            img{
+                width:300px;
+            }
+            .center{
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+        </style>
+    </head>
+    <body onload="startTime()">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="../index.html" style="font-family: 'Courier New', Courier, monospace ;"><img id="comp-logo" src="../images/logo.jpg" alt="logo">Reliable Baby Product Specialist </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                
+                <li class="nav-item dropdown  active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Produect Catalog
+                    </a>
+                    <div class="dropdown-menu animate slideIn" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="../babyFood.html">Baby Food</a>
+                      <a class="dropdown-item" href="../babyCare.html">Baby Care</a>
+                      <a class="dropdown-item" href="../toys.html">Toys</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../game.html">Games</a>
+                  </li>
+              </ul>
+            </div>
+          </nav>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <img id="images" class="center" style="margin-top: 150px;" src="../images/Gerber2ndFoods-removebg-preview.png">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 center">
+                <h3 class="productTitle">Gerber Purees 2nd Foods, Chicken & Gravy, 2.5 Ounce Jars (Pack of 10)</h3>
+                <p class="description" id="price">Price : 162.11 HKD</p>
+                
+                <form>
+                    <button type="button" onclick="subItem()" class="btn btn-secondary" style="width: 200px;">-1</button>
+                    <input type="text" id="number" value=1>
+                    <button type="button" onclick="addItem()" class="btn btn-success" style="width: 200px;">+1</button>
+                    <br>
+                    <button type="button" class="btn btn-light" onclick="calculate()" style="margin-top: 20px; width: 500px;">Calculate</button>
+                    <br>
+                    <a href = "https://www.amazon.com/Gerber-Purees-Foods-Chicken-Gravy/dp/B0835QJFPY" target="_blank">
+                         <button type="button" class="btn btn-dark" style="margin-top: 20px; width: 500px;height: 70px;">Go Buy It !</button>
+                    </a>
+                    <br>
+                    <button type="button" class="btn btn-primary" style="margin-top: 20px; width: 500px;height: 70px;" onclick="addFavourite()">ADD to my favourite</button>
+                  </form>
+            </div>
+        </div>
+            <p style="color: white;margin-left:5%;text-align: center;">Rollover the picture to see backsides</p>
+        <hr>
+        <h3 style="color: white;text-align: center;margin:50px 0px;">Product Details</h3>
+        <div id="content">
+            <ol>
+                <li>NEW TASTES: Continue your baby’s food explorations! Gerber 2nd Foods will expose them to a variety of tastes & ingredient combinations to help them accept new flavors. Non-GMO Project verified.</li>
+                <li>WHOLESOME SOURCE OF PROTEIN: Our meats & poultry are among the best food sources for zinc for babies. Inspected by the USDA, they contain 7 grams of protein per jar & no added salt, artificial flavors or colors.</li>
+                <li>PUREED GOODNESS: Introduce your little one to the goodness of fruits, veggies & other wholesome ingredients. Our baby food is lovingly made & quality tested before it's good enough to be called Gerber.Does Not Contain Any of the 8 Major Allergens</li>
+                <li>WHOLESOME OPTIONS: Introduce your infant or toddler to the goodness of fruits, veggies & other wholesome ingredients with Gerber pureed baby food, formula, cereals, snack cups, fruit pouches & more.</li>
+                <li>The health and safety of your little one has been and will always be Gerber’s highest priority. We're a leader in infant nutrition, not just because we grow food that will feed your little one, but also because we know what nourishment your little one needs</li>
+            </ol>
+        </div>
+          <footer class="page-footer">
+            <div class="container">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <p style="float: right;">
+                    <img src="../images/logo.jpg">
+                    <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                    <p>HONG KONG
+                    <br/><a href="mailto:info@RBPS.com.hk" style="color: red;">info@RBPS.com.hk</a>
+                    <br/>+852 1234 5678
+                    <br>
+                    <h6 class="text-uppercase font-weight-bold">Current Time:</h6><span id="date"></span>&nbsp&nbsp<span id="txt"></span>
+                </p>
+              </div>
+            </div>
+          </footer>
+    </body>
+</html>

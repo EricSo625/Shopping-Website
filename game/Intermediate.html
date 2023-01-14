@@ -1,0 +1,786 @@
+<html>
+    <head>
+        <title>Games</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" 
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Open+Sans&display=swap" rel="stylesheet">
+        
+        <script text="javascript">
+            var tap = 0;
+            var tryTime = 0;
+            var correct = 0;
+            var played = 0;
+            var countTime = false;
+            var playmusic = false;
+            var totalSeconds = 0;
+            const x = new Audio("../Resume/audio and picture/freedom-inspired-cinematic-background-music-for-video-5606.mp3");
+            var playmusic = false;
+            Gameset = Math.floor(Math.random() * 3) + 1;
+             function game(){//adjust the game difficultiy and randomly display fixed pattern
+                if(document.getElementById("difficultity").value == "Basic"){
+                    location.href = "../game.html"; 
+                }
+                if(document.getElementById("difficultity").value == "Intermediate"){
+                    if (played == 0){        
+                        startCounting(true);//start counting time when user start the game
+                        played = played + 1;
+                        document.getElementById("table").style.visibility = "visible";
+                        switch(Gameset){
+                            case 1:
+                                IntermediateGame1();
+                                break;
+                            case 2:
+                                IntermediateGame2();
+                                break;
+                            case 3:
+                                IntermediateGame3();
+                                break;
+                        }              
+                    }else{
+                        alert("You can not press this again, please refresh if you want to reset the game");
+                    } 
+                }
+                if(document.getElementById("difficultity").value == "Advanced"){//change game mode
+                    location.href = "advanced.html";                    
+                }
+            }
+            
+            function startTime() {//display the current time
+                const today = new Date();
+                let h = today.getHours();
+                let m = today.getMinutes();
+                let s = today.getSeconds();
+                n =  new Date();
+                y = n.getFullYear();
+                m = n.getMonth() + 1;
+                d = n.getDate();
+                document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+                m = checkTime(m);
+                s = checkTime(s);
+                document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+                setTimeout(startTime, 1000);
+                }
+    
+            function checkTime(i) {
+                if (i < 10) {i = "0" + i}; 
+                return i;
+                }
+            function IntermediateGame1(){ //set 1
+                var img = document.createElement('img'); 
+                img.src = '../images/Gerber2ndFoods-removebg-preview.png'; 
+                displayPicture(img,3);//image on position 3
+                var img = document.createElement('img'); 
+                img.src = '../images/Happy_Tot_Organics_Super_Foods_Stage_4-removebg-preview.png'; 
+                displayPicture(img,5);
+                var img = document.createElement('img'); 
+                img.src = '../images/KAWAI.png'; 
+                displayPicture(img,23);
+                var img = document.createElement('img'); 
+                img.src = '../images/81s+p-98uyL._SL1500_-removebg-preview.png';             
+                displayPicture(img,15);
+                var img = document.createElement('img'); 
+                img.src = '../images/71wQb2LWUkL._AC_SL1500_-removebg-preview.png'; 
+                displayPicture(img,17);
+                var img = document.createElement('img'); 
+                img.src = '../images/71jwx0Q31AL._AC_SL1500_-removebg-preview.png'; 
+                displayPicture(img,21);
+                var img = document.createElement('img'); 
+                img.src = '../images/71cEq61FQJL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,20);
+                var img = document.createElement('img'); 
+                img.src = '../images/71o87GinW3L._AC_SL1500_-removebg-preview.png'; 
+                displayPicture(img,4);
+                var img = document.createElement('img'); 
+                img.src = '../images/71Chx8FDPXL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,13);
+                var img = document.createElement('img'); 
+                img.src = '../images/61j3fnwVXzL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,18);
+                var img = document.createElement('img'); 
+                img.src = '../images/71gAiqAG3EL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,10);
+                var img = document.createElement('img'); 
+                img.src = '../images/81-5p7ojYKL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,11);
+                displayText(24,"Chicken and Gravy");
+                displayText(9,"VTech Baby Lil' Critters Moosical Beads Amazon Exclusive");
+                displayText(12,"Happy Tot Organics Super Foods Stage 4");
+                displayText(22,"Aquaphor Baby Skin Care Set");
+                displayText(1,"Baby Dove Sensitive Skin Care Baby Wash");
+                displayText(2,"Baby Einstein Take Along Tunes Musical Toy,");
+                displayText(19,"Dr. Brown's Infant-to-Toddler Toothbrush");
+                displayText(6,"LeapFrog Learning Friends 100 Words Book");
+                displayText(8,"Baby Bum Duke’s Rad Bath Set");
+                displayText(7,"VTech Turn and Learn Driver");
+                displayText(14,"KAWAI Kanyu Drop S");
+                displayText(16,"Happy Baby Organics Clearly Cartted Stage 1");
+            }
+
+            function IntermediateGame2(){ //set 2
+                var img = document.createElement('img'); 
+                img.src = '../images/Gerber2ndFoods-removebg-preview.png'; 
+                displayPicture(img,1);//image on position 1
+                var img = document.createElement('img'); 
+                img.src = '../images/Happy_Tot_Organics_Super_Foods_Stage_4-removebg-preview.png'; 
+                displayPicture(img,3);
+                var img = document.createElement('img'); 
+                img.src = '../images/KAWAI.png'; 
+                displayPicture(img,5);
+                var img = document.createElement('img'); 
+                img.src = '../images/81s+p-98uyL._SL1500_-removebg-preview.png';             
+                displayPicture(img,7);
+                var img = document.createElement('img'); 
+                img.src = '../images/71wQb2LWUkL._AC_SL1500_-removebg-preview.png'; 
+                displayPicture(img,9);
+                var img = document.createElement('img'); 
+                img.src = '../images/71jwx0Q31AL._AC_SL1500_-removebg-preview.png'; 
+                displayPicture(img,11);
+                var img = document.createElement('img'); 
+                img.src = '../images/71cEq61FQJL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,13);
+                var img = document.createElement('img'); 
+                img.src = '../images/71o87GinW3L._AC_SL1500_-removebg-preview.png'; 
+                displayPicture(img,15);
+                var img = document.createElement('img'); 
+                img.src = '../images/71Chx8FDPXL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,17);
+                var img = document.createElement('img'); 
+                img.src = '../images/61j3fnwVXzL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,19);
+                var img = document.createElement('img'); 
+                img.src = '../images/71gAiqAG3EL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,21);
+                var img = document.createElement('img'); 
+                img.src = '../images/81-5p7ojYKL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,23);
+                displayText(24,"Chicken and Gravy");
+                displayText(20,"VTech Baby Lil' Critters Moosical Beads Amazon Exclusive");
+                displayText(16,"Happy Tot Organics Super Foods Stage 4");
+                displayText(12,"Aquaphor Baby Skin Care Set");
+                displayText(14,"Baby Dove Sensitive Skin Care Baby Wash");
+                displayText(8,"Baby Einstein Take Along Tunes Musical Toy,");
+                displayText(4,"Dr. Brown's Infant-to-Toddler Toothbrush");
+                displayText(10,"LeapFrog Learning Friends 100 Words Book");
+                displayText(2,"Baby Bum Duke’s Rad Bath Set");
+                displayText(6,"VTech Turn and Learn Driver");
+                displayText(18,"KAWAI Kanyu Drop S");
+                displayText(22,"Happy Baby Organics Clearly Cartted Stage 1");
+            }
+
+            function IntermediateGame3(){//set 3
+                var img = document.createElement('img'); 
+                img.src = '../images/Gerber2ndFoods-removebg-preview.png'; 
+                displayPicture(img,19);//image on position 19
+                var img = document.createElement('img'); 
+                img.src = '../images/Happy_Tot_Organics_Super_Foods_Stage_4-removebg-preview.png'; 
+                displayPicture(img,20);
+                var img = document.createElement('img'); 
+                img.src = '../images/KAWAI.png'; 
+                displayPicture(img,16);
+                var img = document.createElement('img'); 
+                img.src = '../images/81s+p-98uyL._SL1500_-removebg-preview.png';             
+                displayPicture(img,2);
+                var img = document.createElement('img'); 
+                img.src = '../images/71wQb2LWUkL._AC_SL1500_-removebg-preview.png'; 
+                displayPicture(img,14);
+                var img = document.createElement('img'); 
+                img.src = '../images/71jwx0Q31AL._AC_SL1500_-removebg-preview.png'; 
+                displayPicture(img,10);
+                var img = document.createElement('img'); 
+                img.src = '../images/71cEq61FQJL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,1);
+                var img = document.createElement('img'); 
+                img.src = '../images/71o87GinW3L._AC_SL1500_-removebg-preview.png'; 
+                displayPicture(img,12);
+                var img = document.createElement('img'); 
+                img.src = '../images/71Chx8FDPXL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,15);
+                var img = document.createElement('img'); 
+                img.src = '../images/61j3fnwVXzL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,17);
+                var img = document.createElement('img'); 
+                img.src = '../images/71gAiqAG3EL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,18);
+                var img = document.createElement('img'); 
+                img.src = '../images/81-5p7ojYKL._SL1500_-removebg-preview.png'; 
+                displayPicture(img,24);
+                displayText(5,"Chicken and Gravy");
+                displayText(21,"VTech Baby Lil' Critters Moosical Beads Amazon Exclusive");
+                displayText(22,"Happy Tot Organics Super Foods Stage 4");
+                displayText(7,"Aquaphor Baby Skin Care Set");
+                displayText(11,"Baby Dove Sensitive Skin Care Baby Wash");
+                displayText(23,"Baby Einstein Take Along Tunes Musical Toy,");
+                displayText(6,"Dr. Brown's Infant-to-Toddler Toothbrush");
+                displayText(13,"LeapFrog Learning Friends 100 Words Book");
+                displayText(9,"Baby Bum Duke’s Rad Bath Set");
+                displayText(8,"VTech Turn and Learn Driver");
+                displayText(4,"KAWAI Kanyu Drop S");
+                displayText(3,"Happy Baby Organics Clearly Cartted Stage 1");
+            }
+        
+            function displayText(location,content){//display corresponding text according to the location input
+                switch(location){
+                        case 1:
+                            document.getElementById('1').innerHTML = content;
+                            break;
+                        case 2:
+                            document.getElementById('2').innerHTML = content;
+                            break;
+                        case 3:
+                            document.getElementById('3').innerHTML = content;
+                            break;
+                        case 4:
+                            document.getElementById('4').innerHTML = content;
+                            break;
+                        case 5:
+                            document.getElementById('5').innerHTML = content;
+                            break;
+                        case 6:
+                            document.getElementById('6').innerHTML = content;
+                            break;
+                        case 7:
+                            document.getElementById('7').innerHTML = content;
+                            break;
+                        case 8:
+                            document.getElementById('8').innerHTML = content;
+                            break;
+                        case 9:
+                            document.getElementById('9').innerHTML = content;
+                            break;
+                        case 10:
+                            document.getElementById('10').innerHTML = content;
+                            break;
+                        case 11:
+                            document.getElementById('11').innerHTML = content;
+                            break;
+                        case 12:
+                            document.getElementById('12').innerHTML = content;
+                            break;
+                        case 13:
+                            document.getElementById('13').innerHTML = content;    
+                            break;
+                        case 14:
+                            document.getElementById('14').innerHTML = content;
+                            break;
+                        case 15:
+                            document.getElementById('15').innerHTML = content;
+                            break;                     
+                        case 16:
+                            document.getElementById('16').innerHTML = content;;
+                            break;
+                        case 17:
+                            document.getElementById('17').innerHTML = content;    
+                            break;
+                        case 18:
+                            document.getElementById('18').innerHTML = content;
+                            break;
+                        case 19:
+                            document.getElementById('19').innerHTML = content;
+                            break;                     
+                        case 20:
+                            document.getElementById('20').innerHTML = content;;
+                            break;              
+                        case 21:
+                            document.getElementById('21').innerHTML = content;    
+                            break;
+                        case 22:
+                            document.getElementById('22').innerHTML = content;
+                            break;
+                        case 23:
+                            document.getElementById('23').innerHTML = content;
+                            break;                     
+                        case 24:
+                            document.getElementById('24').innerHTML = content;;
+                            break;                           
+                        }
+                }
+                function displayPicture(img,location){   //display corresponding image according to the location input
+                    switch(location){
+                        case 1:
+                            document.getElementById('1').appendChild(img).width="300";
+                            break;
+                        case 2:
+                            document.getElementById('2').appendChild(img).width="300";
+                            break;
+                        case 3:
+                            document.getElementById('3').appendChild(img).width="300";
+                            break;
+                        case 4:
+                            document.getElementById('4').appendChild(img).width="300";
+                            break;
+                        case 5:
+                            document.getElementById('5').appendChild(img).width="300";
+                            break;
+                        case 6:
+                            document.getElementById('6').appendChild(img).width="300";
+                            break;
+                        case 7:
+                            document.getElementById('7').appendChild(img).width="300";
+                            break;
+                        case 8:
+                            document.getElementById('8').appendChild(img).width="300";
+                            break;
+                        case 9:
+                            document.getElementById('9').appendChild(img).width="300";  
+                            break;
+                        case 10:
+                            document.getElementById('10').appendChild(img).width="300";
+                            break;
+                        case 11:
+                            document.getElementById('11').appendChild(img).width="300";
+                            break;
+                        case 12:
+                            document.getElementById('12').appendChild(img).width="300";
+                            break;
+                        case 13:
+                            document.getElementById('13').appendChild(img).width="300";
+                            break;
+                        case 14:
+                            document.getElementById('14').appendChild(img).width="300" ;
+                            break;
+                        case 15:
+                            document.getElementById('15').appendChild(img).width="300";
+                            break;                     
+                        case 16:
+                            document.getElementById('16').appendChild(img).width="300";
+                            break;       
+                        case 17:
+                            document.getElementById('17').appendChild(img).width="300";
+                            break;
+                        case 18:
+                            document.getElementById('18').appendChild(img).width="300" ;
+                            break;
+                        case 19:
+                            document.getElementById('19').appendChild(img).width="300";
+                            break;                     
+                        case 20:
+                            document.getElementById('20').appendChild(img).width="300";
+                            break;          
+                        case 21:
+                            document.getElementById('21').appendChild(img).width="300";
+                            break;
+                        case 22:
+                            document.getElementById('22').appendChild(img).width="300" ;
+                            break;
+                        case 23:
+                            document.getElementById('23').appendChild(img).width="300";
+                            break;                     
+                        case 24:
+                            document.getElementById('24').appendChild(img).width="300";
+                            break;                   
+                        }
+                }
+
+                function startCounting(v){//counting time of user playing
+                    if(v == true){    
+                        timerVar = setInterval(countTimer, 1000);
+                    }
+                    if(v == false){
+                        clearInterval(timerVar);
+                    }
+                }
+                
+              
+                function countTimer() {//display the current time
+                    ++totalSeconds;
+                    var hour = Math.floor(totalSeconds /3600);
+                    var minute = Math.floor((totalSeconds - hour*3600)/60);
+                    var seconds = totalSeconds - (hour*3600 + minute*60);
+                    if(hour < 10)
+                        hour = "0"+hour;
+                    if(minute < 10)                            
+                        minute = "0"+minute;
+                    if(seconds < 10)
+                        seconds = "0"+seconds;
+                    document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
+                    totalTime = parseInt(seconds) + parseInt(minute)*60 + parseInt(hour)*60*60;
+                    return totalTime;
+                }
+
+                function gameverifcation(id){
+                    switch(Gameset){
+                        case 1:
+                            answerP = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];//generate position
+                            answerT = [13,15,24,9,12,17,21,20,4,22,16,5,1,23,2,11,6,19,18,8,7,10,14,3];//answer position
+                            break;
+                        case 2:
+                            answerP = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+                            answerT = [24,13,16,19,18,11,8,7,10,9,6,21,2,17,20,3,14,5,4,15,12,23,22,1];
+                            break;
+                        case 3:
+                            answerP = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+                            answerT = [9,23,24,16,19,17,18,10,1,8,15,21,14,13,11,4,6,7,5,22,12,20,2,3];
+                            break;
+                    }
+                    
+                    if(tryTime != 1){ //case of user successfully match image and text
+                        temp = id;
+                        tryTime = tryTime + 1;
+                        return
+                    }else{//case of fail
+                        if (temp==answerT[id-1]){
+                            document.getElementById("ending").style.visibility = "visible";
+                            document.getElementById("ending").style.color = "green";
+                            document.getElementById("ending").innerHTML = "YOU ARE CORRECT :)"
+                            document.getElementById("1").style.backgroundColor = "transparent";
+                            document.getElementById(id).style.visibility = "hidden";
+                            document.getElementById(temp).style.visibility = "hidden";
+                            correct = correct + 1 ;
+                            temp = 0
+                        }else{
+                            document.getElementById("ending").style.visibility = "visible";
+                            document.getElementById("ending").style.color = "red";
+                            document.getElementById("ending").innerHTML = "YOU ARE NOT CORRECT :("
+                            document.getElementById("1").style.backgroundColor = "transparent";
+                            document.getElementById("2").style.backgroundColor = "transparent";
+                            document.getElementById("3").style.backgroundColor = "transparent";
+                            document.getElementById("4").style.backgroundColor = "transparent";
+                            document.getElementById("5").style.backgroundColor = "transparent";
+                            document.getElementById("6").style.backgroundColor = "transparent";
+                            document.getElementById("7").style.backgroundColor = "transparent";
+                            document.getElementById("8").style.backgroundColor = "transparent";
+                            document.getElementById("9").style.backgroundColor = "transparent";
+                            document.getElementById("10").style.backgroundColor = "transparent";
+                            document.getElementById("11").style.backgroundColor = "transparent";
+                            document.getElementById("12").style.backgroundColor = "transparent";
+                            document.getElementById("13").style.backgroundColor = "transparent";
+                            document.getElementById("14").style.backgroundColor = "transparent";
+                            document.getElementById("15").style.backgroundColor = "transparent";
+                            document.getElementById("16").style.backgroundColor = "transparent";
+                            document.getElementById("17").style.backgroundColor = "transparent";
+                            document.getElementById("18").style.backgroundColor = "transparent";
+                            document.getElementById("19").style.backgroundColor = "transparent";
+                            document.getElementById("20").style.backgroundColor = "transparent";
+                            document.getElementById("21").style.backgroundColor = "transparent";
+                            document.getElementById("22").style.backgroundColor = "transparent";
+                            document.getElementById("23").style.backgroundColor = "transparent";
+                            document.getElementById("24").style.backgroundColor = "transparent";
+                        }
+                        tryTime = 0;
+                    }
+                    if(correct == 12){//case of user complete the game
+                        startCounting(false);
+                        higherScore();
+                        document.getElementById("timer").style.visibility = "hidden"
+                        
+                        document.getElementById("ending").style.visibility = "hidden";
+                        document.getElementById("table").style.visibility = "hidden";
+                        location.href = '../game/congratulations.html';
+
+                    }
+                }
+                function higherScore(){//save the score into local storage if it is the higher score
+                    totalTime = countTimer();
+                    if(localStorage.getItem("IntermediateScore")==null){
+                        localStorage.setItem("IntermediateScore",totalTime);
+                    }else{
+                        var score = localStorage.getItem("IntermediateScore");
+                        if(parseInt(totalTime) < parseInt(score)){
+                            alert("NEW RECORD !!");
+                            localStorage.setItem("IntermediateScore",totalTime);
+                        }
+                    }
+                    alert("The time is "+ document.getElementById("timer").innerHTML)
+                }
+                function clickFeedback(id){//background of image will change if user click it 
+                    if (tap <= 2){
+                        document.getElementById(id).style.backgroundColor = "lightblue";
+                        tap = tap + 1;
+                    }else{
+                        document.getElementById("1").style.backgroundColor = "transparent";
+                        document.getElementById("2").style.backgroundColor = "transparent";
+                        document.getElementById("3").style.backgroundColor = "transparent";
+                        document.getElementById("4").style.backgroundColor = "transparent";
+                        document.getElementById("5").style.backgroundColor = "transparent";
+                        document.getElementById("6").style.backgroundColor = "transparent";
+                        document.getElementById("7").style.backgroundColor = "transparent";
+                        document.getElementById("8").style.backgroundColor = "transparent";
+                        document.getElementById("9").style.backgroundColor = "transparent";
+                        document.getElementById("10").style.backgroundColor = "transparent";
+                        document.getElementById("11").style.backgroundColor = "transparent";
+                        document.getElementById("12").style.backgroundColor = "transparent";
+                        document.getElementById("13").style.backgroundColor = "transparent";
+                        document.getElementById("14").style.backgroundColor = "transparent";
+                        document.getElementById("15").style.backgroundColor = "transparent";
+                        document.getElementById("16").style.backgroundColor = "transparent";
+                        document.getElementById("17").style.backgroundColor = "transparent";
+                        document.getElementById("18").style.backgroundColor = "transparent";
+                        document.getElementById("19").style.backgroundColor = "transparent";
+                        document.getElementById("20").style.backgroundColor = "transparent";
+                        document.getElementById("21").style.backgroundColor = "transparent";
+                        document.getElementById("22").style.backgroundColor = "transparent";
+                        document.getElementById("23").style.backgroundColor = "transparent";
+                        document.getElementById("24").style.backgroundColor = "transparent";
+                        tap = 0;
+                    }
+                    gameverifcation(id);
+                }
+
+                function play(){//blackground music
+                    if(playmusic == false){
+                        x.play();
+                        playmusic = true;
+                    }else{
+                        x.pause();
+                        playmusic = false;
+                    }
+                }
+
+                $(document).mousemove(function(e){//change the mouse icon
+                    $('.pointer').css({left:e.pageX,top:e.pageY})
+                })
+        </script>
+        <style>
+            body{
+                overflow-x: hidden;
+                background-image: url("../images/background_image.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .navbar {
+                background:transparent;
+            }
+
+            .nav-link,.navbar-brand {
+                color: transparent;
+                cursor: pointer;
+            }
+            .nav-link {
+                margin-right: 1em;
+            }
+            .nav-link:hover {
+                color: #000;
+            }
+            .navbar-collapse {
+                justify-content: flex-end;
+            }
+            #comp-logo {
+                border-radius: 50%;
+                width: 75px;
+                margin-right: 35px;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Noto Sans TC', sans-serif;
+            }
+            p, a, span, li label {
+                font-family: 'Noto Sans TC', sans-serif;
+                font-family: 'Open Sans', sans-serif;
+            }
+            .dropdown-menu { 
+                box-shadow: 0 0 5px 0;
+                background: inherit;
+                backdrop-filter: blur(10px);
+                text-align: center;
+                border-radius: 0 0 15px 15px;
+            }
+            .dropdown-item{
+                color: white;
+            }
+            .page-footer {
+                margin-top: 500px;
+                background-color: black;
+                color: #ccc;
+                padding: 50px;
+            }
+            .page-footer img{
+                border-radius: 50%;
+                width: 200px;
+            }
+            @media (min-width: 768px) {
+                .animate {
+                    animation-duration: 0.3s;
+                    -webkit-animation-duration: 0.3s;
+                    animation-fill-mode: both;
+                    -webkit-animation-fill-mode: both;
+                }
+            }
+
+            @keyframes slideIn {
+                0% {
+                    transform: translateY(0rem);
+                }
+
+                100% {
+                    transform: translateY(1rem);
+                    
+                }
+            }
+
+            .slideIn {
+                animation-name: slideIn;
+            }
+            .right{
+                float: right;
+            }
+            div#gameselection{
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                text-align: center;
+                color: white;
+            }
+            div#gameselection button{
+                text-align: center;
+            }
+            table{
+                margin: 50px;
+            }
+            td{
+                border: white solid;
+            }
+            table,tr,th{
+                margin-left: auto;
+                margin-right: auto;
+                border: solid white 1px;
+                font-size: 1.5em;
+                border-collapse: collapse;
+                width: 80%;
+                text-align: center;
+                color: white;
+            }
+            .result{
+                text-align: center;
+                margin-top: 30px;
+                visibility: hidden;
+            }
+            .pointer{
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background: blue;
+                border-radius:50%;
+                top: 50%;
+                left: 50%;
+                pointer-events: none;
+                box-sizing: border-box;
+                transition: 0.1s;
+            }
+            #leftPig {
+                width: 150px;
+                position: relative;
+            }
+            #rightPig{
+                width: 150px;
+                position: relative;
+            }
+        </style>
+    </head>
+    <body onload="startTime()">
+        <div class="pointer"></div>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="../index.html" style="font-family: 'Courier New', Courier, monospace ;"><img id="comp-logo" src="../images/logo.jpg" alt="logo">Reliable Baby Product Specialist </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Produect Catalog
+                    </a>
+                    <div class="dropdown-menu animate slideIn" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="../babyFood.html">Baby Food</a>
+                      <a class="dropdown-item" href="../babyCare.html">Baby Care</a>
+                      <a class="dropdown-item" href="../toys.html">Toys</a>
+                    </div>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="../game.html">Games</a>
+                  </li>
+              </ul>
+            </div>
+          </nav>
+          <div id="gameselection">
+            <img id="leftPig" src="../images/1001466211-removebg-preview.png">
+            <label>Change the game difficultity :</label>
+            <select id="difficultity">
+                <option value="Intermediate">Intermediate</option>
+                <option value="Basic">Basic</option>
+                <option value="Advanced">Advanced level</option>
+            </select>
+            <button type="button" onclick="game(),movingPig()" class="btn btn-dark">Select/Start</button>
+            <button type="button" onclick="play()" class="btn btn-success">Play/Pause Music</button>
+            <img id="rightPig" src="../images/1001466211-removebg-preview.png">
+          </div>
+          <script>
+            function movingPig() {
+            let start = Date.now();
+            let timer = setInterval(function() {
+                let passTime = Date.now() - start;
+                leftPig.style.right = passTime / 3 + 'px';
+                rightPig.style.left = passTime / 3 + 'px';
+                if (passTime > 100000) 
+                    clearInterval(timer);
+                }, 20);
+            }
+        </script>
+          <h1 class="result" id="ending"></h1>
+          <div style="text-align: center;font-size: 1.5em;color: white;" id="timer"></div>
+          <table id="table" style="visibility: hidden;">
+              <tr>
+                  <td onclick="clickFeedback(1)" id="1">&nbsp</td>
+                  <td onclick="clickFeedback(2)" id="2">&nbsp</td>
+                  <td onclick="clickFeedback(3)" id="3">&nbsp</td>
+                  <td onclick="clickFeedback(4)" id="4">&nbsp</td>
+              </tr>
+              <tr>
+                <td onclick="clickFeedback(5)" id="5">&nbsp</td>
+                <td onclick="clickFeedback(6)" id="6">&nbsp</td>
+                <td onclick="clickFeedback(7)" id="7">&nbsp</td>
+                <td onclick="clickFeedback(8)" id="8">&nbsp</td>
+            </tr>
+            <tr>
+                <td onclick="clickFeedback(9)" id="9">&nbsp</td>
+                <td onclick="clickFeedback(10)" id="10">&nbsp</td>
+                <td onclick="clickFeedback(11)" id="11">&nbsp</td>
+                <td onclick="clickFeedback(12)" id="12">&nbsp</td>
+            </tr>
+            <tr>
+                <td onclick="clickFeedback(13)" id="13">&nbsp</td>
+                <td onclick="clickFeedback(14)" id="14">&nbsp</td>
+                <td onclick="clickFeedback(15)" id="15">&nbsp</td>
+                <td onclick="clickFeedback(16)" id="16">&nbsp</td>
+            </tr>
+            <tr>
+                <td onclick="clickFeedback(17)" id="17">&nbsp</td>
+                <td onclick="clickFeedback(18)" id="18">&nbsp</td>
+                <td onclick="clickFeedback(19)" id="19">&nbsp</td>
+                <td onclick="clickFeedback(20)" id="20">&nbsp</td>
+            </tr>
+            <tr>
+                <td onclick="clickFeedback(21)" id="21">&nbsp</td>
+                <td onclick="clickFeedback(22)" id="22">&nbsp</td>
+                <td onclick="clickFeedback(23)" id="23">&nbsp</td>
+                <td onclick="clickFeedback(24)" id="24">&nbsp</td>
+            </tr>
+          </table>
+          <footer class="page-footer">
+            <div class="container">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <p style="float: right;">
+                    <img src="../images/logo.jpg">
+                    <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                    <p>HONG KONG
+                    <br/><a href="mailto:info@RBPS.com.hk" style="color: red;">info@RBPS.com.hk</a>
+                    <br/>+852 1234 5678
+                    <br>
+                    <h6 class="text-uppercase font-weight-bold">Current Time:</h6><span id="date"></span>&nbsp&nbsp<span id="txt"></span>
+                </p>
+              </div>
+            </div>
+          </footer>
+    </body>
+</html>
